@@ -76,6 +76,6 @@ end
 gem 'rspec-rails', group: [ :test ]
 gem 'rails-controller-testing', group: [ :test ]
 
-# Adds OPEN URI & JSON gems to use with The Movie Database API
-gem 'open-uri'
+# Adds REST CLIENT & JSON gems to use with The Movie Database API
+gem 'rest-client'
 gem 'json'
