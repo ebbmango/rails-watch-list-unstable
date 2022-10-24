@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h1>Movies</h1>
+  <p>There is a total of <%= @movies.count %> movies</p>
+
+  <div class="">
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-6 mb-3">
+          <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="<%= movie.poster_url %>" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body" style="overflow-y: auto; height: 269px">
+                  <h5 class="card-title"><%= movie.title %></h5>
+                  <p class="card-subtitle text-muted mb-2">Rating: <strong><%= movie.rating %></strong></p>
+                  <p class="card-text"><%= movie.overview %></p>
+                </div>
+              </div>
+            </div>
+            <div class="btn btn-primary">Bookmark this title</div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
