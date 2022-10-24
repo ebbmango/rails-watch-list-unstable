@@ -3,20 +3,19 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
         <%= link_to 'Movies', movies_path, class: "nav-link" %>
-        <%= link_to 'Lists', lists_path, class: "nav-link active" %>
+        <%= link_to 'Lists', lists_path, class: "nav-link" %>
       </div>
     </div>
   </div>
 </nav>
 
-<div class="container mt-3">
-  <div class="text-center mb-4">
-    <h1>Lists</h1>
-    <p>There is a total of <%= @lists.count %> lists</p>
+<div class="container mt-4">
+  <div class="text-center">
+    <h1><%= @list.name %></h1>
+    <p>There is a total of <%= @list.bookmarks.count %> bookmarks</p>
+
+    <%= link_to 'Bookmark a movie', new_bookmark_path, class: 'btn btn-primary' %>
   </div>
 
-  <% @lists.each do |list| %>
-    <%= link_to list.name, list_path(list) %>
-    <br>
-  <% end %>
+
 </div>
