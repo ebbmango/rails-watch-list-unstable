@@ -13,15 +13,21 @@
   <div class="text-center">
     <h1>New bookmark for<br><%= @list.name %></h1>
   </div>
-
     <form action="/create" method="post" data-turbo="false">
+
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :list_id, @list.id %>
+      <%= hidden_field_tag :movie_id, '0' %>
+
       <label for="comment_text_area" class="form-label">Comment:</label>
       <input type="text" name="comment" id="comment_text_area" class="form-control bg-white">
-      <p class="mt-3">Select below the movie you would like to bookmark.</p>
+      <div class="text-center">
+        <input type="submit" class="btn btn-primary mt-3">
+      </div>
     </form>
 
-    <div class="row">
+    <p class="mt-3">Select below the movie you would like to bookmark.</p>
+    <div class="row" data-controller="movies_index" data-action="" data-selected="0">
       <% @movies.each do |movie| %>
         <div class="col-6 mb-3">
           <div class="card mb-3" style="max-width: 540px;">
@@ -37,10 +43,15 @@
                 </div>
               </div>
             </div>
-            <button class="btn btn-secondary" data-controller="update-card" data-action="click->update-card#update">Bookmark this title</button>
+            <button data-movie="<%= movie.id %>" class="btn btn-secondary" data-controller="update-card" data-selected="false" data-action="click->update-card#update">Bookmark this title</button>
           </div>
         </div>
       <% end %>
     </div>
-
 </div>
+
+<script>
+  // const form = document.querySelector('form')
+  // console.dir(form)
+  // console.dir(document.getElementById('selected_movie_id'))
+</script>

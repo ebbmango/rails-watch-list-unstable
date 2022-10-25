@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'lists/:id', to: 'lists#show', as: :list
 
   get 'lists/:id/bookmarks/new', to: 'bookmarks#new', as: :new_bookmark
+  post 'create', to: 'bookmarks#create'
 end
